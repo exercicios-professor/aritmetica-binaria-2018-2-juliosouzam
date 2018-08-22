@@ -111,8 +111,44 @@ public class Janela extends javax.swing.JDialog {
     }//GEN-LAST:event_saidaActionPerformed
 
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
-        if (this.opcoes.getSelectedIndex() == 0) {    //SOMA
+        if (this.opcoes.getSelectedIndex() == 0) {      //SOMA
             System.out.println("SOMA");
+            String resultado = "";
+            String value1 = valor1.getText();
+            String value2 = valor2.getText();
+            int n = value1.length();
+            int aux = 0;
+
+            for (int p = n-1; p >=0; p--) {
+                char c1 = value1.charAt(p);
+                char c2 = value2.charAt(p);
+
+                int v = Character.getNumericValue(c1) + Character.getNumericValue(c2) + aux;
+
+                if (v == 0) {
+                    resultado = "0" + resultado;
+                    aux = 0;
+                }
+                
+                if (v == 1) {
+                    resultado = "1" + resultado;
+                    aux = 0;
+                }
+
+                if (v == 2) {
+                    resultado = "0" + resultado;
+                    aux = 1;
+                }
+
+                if (v == 3) {
+                    resultado = "1" + resultado;
+                    aux = 1;
+                }
+            }
+            if (aux == 1) {
+                resultado = "1" + resultado;
+            }
+            saida.setText(resultado);
         } else {                                      //SUBTRAÇÃO
             System.out.println("SUBTRAÇÃO");
         }
